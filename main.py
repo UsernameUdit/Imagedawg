@@ -1,6 +1,7 @@
 import subprocess as sb
 from pathlib import Path
-print("Welcome to Imagedawg your offline CLI image converter\n")
+from rich import print
+print("Welcome to [italic red]Imagedawg[/italic red] your offline CLI image converter\n")
 
 def get_input_path():
     c = input("Enter full path of the image\n")
@@ -31,7 +32,7 @@ def detect_format(path):
 
 def get_output_format():
     out_format = [".png",".jpg",".webp"]
-    a = input("type .jpg/.webp/.png to convert into the given format")
+    a = input("type .jpg/.webp/.png to convert into the given format\n")
     if a==".jpg":
             return out_format[1]
     elif a==".png":
@@ -44,12 +45,15 @@ def get_output_format():
 
 
 def convert(path,gof):
+    print("Violating your state secrets beeeep boooop beeeeep................")
     command = ["ffmpeg", "-i",path, "img123"+gof]
     sb.run(command,shell = False)
+    print("File cooked dawg")
+
 
 path = get_input_path()
 inp_format = detect_format(path)
-out_format = get_output_format(inp_format)
+out_format = get_output_format()
 convert(path, out_format)
 
 
