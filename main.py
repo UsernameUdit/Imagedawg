@@ -1,6 +1,7 @@
 import subprocess as sb
 from pathlib import Path
 from rich import print
+
 print("Welcome to [italic red]Imagedawg[/italic red] your offline CLI image converter\n")
 
 def get_input_path():
